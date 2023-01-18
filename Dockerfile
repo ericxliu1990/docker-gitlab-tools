@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ARG VERSION=1.3.3
+ARG VERSION=1.4.4
 ARG REPOSITORY=https://github.com/Salamek/gitlab-tools.git
 ARG S6_VERSION=2.2.0.3
 
@@ -26,7 +26,7 @@ RUN \
   # clone the dependencies
   mkdir -p /opt/gitlab-tools /etc/gitlab-tools /data && \
   git clone ${REPOSITORY} . && \
-  git checkout ${VERSION} && \
+  git checkout tags/${VERSION} && \
   cd /opt/gitlab-tools/gitlab_tools/static && \
   npm ci && \
   cd /opt/gitlab-tools && \
